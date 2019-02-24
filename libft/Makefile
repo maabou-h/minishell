@@ -6,7 +6,7 @@
 #    By: maabou-h <maabou-h@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/13 18:42:02 by maabou-h          #+#    #+#              #
-#    Updated: 2019/02/21 14:43:19 by maabou-h         ###   ########.fr        #
+#    Updated: 2019/02/24 19:04:40 by maabou-h         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SRC_NAME = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c\
 		   ft_strncpy.c ft_strndup.c ft_strnequ.c ft_strnew.c ft_strnstr.c\
 		   ft_strrchr.c ft_strrev.c ft_strsplit.c ft_strstr.c ft_strsub.c\
 		   ft_strtrim.c ft_tolower.c ft_toupper.c ft_unbrlen.c get_next_line.c\
-		   ft_free_arr.c
+		   ft_free_arr.c ft_splitwhitespaces.c
 NAME = libft.a
 CC = clang
 CFLAGS = -Iincludes -g3 -Werror -Wall -Wextra
