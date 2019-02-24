@@ -6,7 +6,7 @@
 /*   By: maabou-h <maabou-h@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/24 14:40:43 by maabou-h          #+#    #+#             */
-/*   Updated: 2019/02/24 20:47:27 by maabou-h         ###   ########.fr       */
+/*   Updated: 2019/02/24 21:50:52 by maabou-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@ char **ft_strsplit(char *str, char c);
 char **ft_splitwhitespaces(char *str);
 char	*ft_strsub(char const *s, unsigned int start, size_t len);
 void				ft_putendl(char const *s);
+size_t				ft_strlen(const char *s);
 
 #endif
