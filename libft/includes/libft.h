@@ -6,7 +6,7 @@
 /*   By: maabou-h <maabou-h@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 23:22:50 by maabou-h          #+#    #+#             */
-/*   Updated: 2019/02/24 19:05:00 by maabou-h         ###   ########.fr       */
+/*   Updated: 2019/03/14 14:54:17 by maabou-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ typedef struct		s_list
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
+
 int					ft_sqrt(int nb);
+int					ft_numlen(int n, int base);
 void				*ft_memset(void *b, int c, size_t len);
 void				ft_bzero(void *s, size_t n);
 void				*ft_memcpy(void *dst, const void *src, size_t n);
@@ -64,6 +66,7 @@ void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char const *s, int fd);
 void				ft_putendl_fd(char const *s, int fd);
 char				*ft_strchr(const char *s, int c);
+int					ft_strichr(const char *s, int c);
 char				*ft_strdup(const char *s1);
 char				*ft_strcpy(char *dst, const char *src);
 char				*ft_strncpy(char *dst, const char *src, size_t len);
@@ -86,6 +89,7 @@ void				ft_strclr(char *s);
 void				ft_striter(char *s, void (*f)(char *));
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 char				**ft_strsplit(char const *s, char c);
+char				**ft_strnsplit(char const *s, size_t len, size_t lentwo);
 int					ft_atoi(const char *str);
 char				*ft_itoa(int n);
 int					ft_unbrlen(uintmax_t n);

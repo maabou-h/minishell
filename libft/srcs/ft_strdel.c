@@ -6,7 +6,7 @@
 /*   By: maabou-h <maabou-h@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/07 12:22:21 by maabou-h          #+#    #+#             */
-/*   Updated: 2018/11/06 21:38:37 by maabou-h         ###   ########.fr       */
+/*   Updated: 2019/03/13 01:00:37 by maabou-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ void	ft_strdel(char **as)
 {
 	if (as)
 	{
-		free(*as);
+		if (*as)
+			free(*as);
 		*as = NULL;
 	}
 }

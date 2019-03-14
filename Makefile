@@ -6,13 +6,13 @@
 #    By: maabou-h <maabou-h@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/13 18:42:02 by maabou-h          #+#    #+#              #
-#    Updated: 2019/02/24 14:50:31 by maabou-h         ###   ########.fr        #
+#    Updated: 2019/03/14 19:32:11 by maabou-h         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC_PATH = srcs
 
-SRC_NAME = main.c
+SRC_NAME = main.c ft_getenv.c msh_builtins.c
 
 NAME = minishell
 

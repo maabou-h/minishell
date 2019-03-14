@@ -6,7 +6,7 @@
 /*   By: maabou-h <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 14:30:04 by maabou-h          #+#    #+#             */
-/*   Updated: 2019/02/21 14:40:01 by maabou-h         ###   ########.fr       */
+/*   Updated: 2019/03/13 01:01:16 by maabou-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,12 @@ int	ft_free_arr(char **arr)
 	int x;
 
 	x = 0;
+	if (!arr)
+		return (0);
 	while (arr[x])
-		ft_strdel(&arr[x]);
+	{
+		ft_strdel(&(arr[x]));
+		x++;
+	}
 	return (0);
 }

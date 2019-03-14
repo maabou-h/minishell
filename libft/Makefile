@@ -6,7 +6,7 @@
 #    By: maabou-h <maabou-h@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/13 18:42:02 by maabou-h          #+#    #+#              #
-#    Updated: 2019/02/24 19:04:40 by maabou-h         ###   ########.fr        #
+#    Updated: 2019/03/14 14:54:55 by maabou-h         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,12 +23,15 @@ SRC_NAME = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c\
 		   ft_strncpy.c ft_strndup.c ft_strnequ.c ft_strnew.c ft_strnstr.c\
 		   ft_strrchr.c ft_strrev.c ft_strsplit.c ft_strstr.c ft_strsub.c\
 		   ft_strtrim.c ft_tolower.c ft_toupper.c ft_unbrlen.c get_next_line.c\
-		   ft_free_arr.c ft_splitwhitespaces.c
+		   ft_free_arr.c ft_splitwhitespaces.c ft_strnsplit.c ft_numlen.c\
+		   ft_csp_case.c ft_di_case.c ft_di_helper.c ft_flags.c ft_o_case.c	\
+	   	  ft_o_helper.c ft_p_helper.c ft_printf.c ft_tools.c ft_u_case.c	\
+	  	  ft_u_helper.c ft_x_case.c ft_x_helper.c ft_xu_case.c 				\
+	  	  ft_xu_helper.c ft_tools2.c ft_strichr.c
 NAME = libft.a
 CC = clang
-CFLAGS = -Iincludes -g3 -Werror -Wall -Wextra
+CFLAGS = -Iincludes -Werror -Wall -Wextra
 OBJ_PATH = .obj
-ARG ?= $N
 
 OBJ_NAME = $(SRC_NAME:%.c=%.o)
 	SRC = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
@@ -39,9 +42,11 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	ar rc $@ $^
 
+$(OBJ): includes/libft.h includes/get_next_line.h includes/ft_printf.h
+
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c
 	@mkdir -p $(OBJ_PATH)
-	$(CC) $(CFLAGS) -o $@ -c $^
+	$(CC) $(CFLAGS) -o $@ -c $<
 
 clean:
 	rm -rfv $(OBJ_PATH)
