@@ -1,39 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maabou-h <maabou-h@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/10 15:32:05 by maabou-h          #+#    #+#             */
-/*   Updated: 2019/03/15 15:41:05 by maabou-h         ###   ########.fr       */
+/*   Created: 2018/11/23 18:32:36 by maabou-h          #+#    #+#             */
+/*   Updated: 2019/02/19 08:09:43 by maabou-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-char		*ft_itoa(int n)
-{
-	char	*itoa;
-	long	nbr;
-	int		end;
+# include <fcntl.h>
+# include "../includes/libft.h"
 
-	if (!(itoa = (char*)malloc(sizeof(char) * (ft_snbrlen(n) + 1))))
-		return (NULL);
-	nbr = n;
-	end = ft_snbrlen(n);
-	itoa[end--] = '\0';
-	if (n < 0)
-	{
-		nbr = -nbr;
-		itoa[0] = '-';
-	}
-	if (n == 0)
-		*itoa = '0';
-	while (nbr)
-	{
-		itoa[end--] = nbr % 10 + '0';
-		nbr /= 10;
-	}
-	return (itoa);
-}
+# define BUFF_SIZE 1
+
+int	get_next_line(const int fd, char **line);
+
+#endif

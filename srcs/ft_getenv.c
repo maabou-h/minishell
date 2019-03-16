@@ -3,28 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_getenv.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maabou-h <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: maabou-h <maabou-h@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 17:11:07 by maabou-h          #+#    #+#             */
-/*   Updated: 2019/03/14 17:12:15 by maabou-h         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_getenv.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: maabou-h <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/28 14:13:11 by maabou-h          #+#    #+#             */
-/*   Updated: 2019/03/14 17:10:16 by maabou-h         ###   ########.fr       */
+/*   Updated: 2019/03/16 19:55:01 by maabou-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-char *ft_getenv(char **envp, char *path)
+char	*ft_getenv(char **envp, char *path)
 {
 	int i;
 	int x;
@@ -36,25 +24,23 @@ char *ft_getenv(char **envp, char *path)
 		while (envp[i])
 		{
 			if (ft_strncmp(envp[i], path, x) == 0 && envp[i][x] == '=')
-				return(envp[i] + x + 1);
+				return (envp[i] + x + 1);
 			i++;
 		}
 	}
 	return (NULL);
 }
 
-char *ft_tildecheck(char *eval)
+char	*ft_tildecheck(char *eval, int i)
 {
-	char	*out;
-	char	*out2;
+	char			*out;
+	char			*out2;
 	uid_t			uid;
 	struct passwd	*p;
-	int				i;
 	int				j;
 
 	out = NULL;
 	out2 = NULL;
-	i = 0;
 	if (ft_strcmp(eval, "~") == 0)
 	{
 		uid = getuid();
@@ -80,7 +66,7 @@ char *ft_tildecheck(char *eval)
 	return (eval);
 }
 
-char *ft_dollarenv(char *eval, char **envp)
+char	*ft_dollarenv(char *eval, char **envp)
 {
 	int i;
 
@@ -89,12 +75,13 @@ char *ft_dollarenv(char *eval, char **envp)
 	{
 		while (envp[i])
 		{
-			if (ft_strncmp(&eval[1], envp[i], ft_strichr(envp[i], '=') - 1) == 0)
+			if (ft_strncmp(&eval[1], envp[i], ft_strichr(envp[i], '=') - 1) == 0
+			&& eval[ft_strichr(envp[i], '=') + 1] == '\0')
 				return (ft_strdup(&envp[i][ft_strichr(envp[i], '=') + 1]));
 			i++;
 		}
 	}
 	if (eval && eval[0] == '~')
-		return (ft_tildecheck(eval));
+		return (ft_tildecheck(eval, 0));
 	return (eval);
 }
