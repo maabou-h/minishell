@@ -6,7 +6,7 @@
 /*   By: maabou-h <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 17:17:04 by maabou-h          #+#    #+#             */
-/*   Updated: 2019/02/19 08:13:31 by maabou-h         ###   ########.fr       */
+/*   Updated: 2019/03/18 20:34:16 by maabou-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static char	*ft_notstrjoin(char *s1, char *s2, size_t n)
 	size_t	i;
 	size_t	pos;
 
-	if (!(new = ft_memalloc((sizeof(char) * (ft_strlen(s1) + n + 1)))))
+	if (!(new = (char*)malloc((sizeof(char) * (ft_strlen(s1) + n + 1)))))
 		return (NULL);
 	i = 0;
 	pos = 0;
@@ -38,15 +38,15 @@ static int	ft_buf(const int fd, char **line, char **buf)
 	tmp = *line;
 	*line = ft_notstrjoin(tmp, buf[fd], (ft_strlen(buf[fd]) -
 				ft_strlen(ft_strchr(buf[fd], '\n'))));
-	free(tmp);
+	ft_strdel(&tmp);
 	tmp = buf[fd];
 	buf[fd] = ft_strdup(ft_strchr(buf[fd], '\n'));
-	free(tmp);
+	ft_strdel(&tmp);
 	if (buf[fd])
 	{
 		tmp = buf[fd];
 		buf[fd] = ft_strdup(buf[fd] + 1);
-		free(tmp);
+		ft_strdel(&tmp);
 		return (1);
 	}
 	return (0);
@@ -54,10 +54,10 @@ static int	ft_buf(const int fd, char **line, char **buf)
 
 int			get_next_line(const int fd, char **line)
 {
-	static char	*buf[4895];
+	static char	*buf[255];
 	int			ret;
 
-	if (fd < 0 || !line || fd > 4894 || !(*line = ft_strnew(0)))
+	if (fd < 0 || !line || fd > 255 || !(*line = ft_strnew(0)))
 		return (-1);
 	ret = 1;
 	while (ret != -1)

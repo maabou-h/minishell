@@ -6,7 +6,7 @@
 /*   By: maabou-h <maabou-h@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 23:22:50 by maabou-h          #+#    #+#             */
-/*   Updated: 2019/03/14 14:54:17 by maabou-h         ###   ########.fr       */
+/*   Updated: 2019/03/23 20:23:53 by maabou-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,5 +95,5 @@ char				*ft_itoa(int n);
 int					ft_unbrlen(uintmax_t n);
 int					ft_snbrlen(intmax_t n);
 int					ft_free_arr(char **arr);
-char			**ft_splitwhitespaces(char const *s);
+char				**ft_splitwhitespaces(char const *s);
 #endif

@@ -6,7 +6,7 @@
 /*   By: maabou-h <maabou-h@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/24 19:01:30 by maabou-h          #+#    #+#             */
-/*   Updated: 2019/02/24 19:04:08 by maabou-h         ###   ########.fr       */
+/*   Updated: 2019/03/18 20:00:26 by maabou-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ char			**ft_splitwhitespaces(char const *s)
 	j = 0;
 	if (!s)
 		return (NULL);
-	if (!(arr = (char**)malloc(sizeof(char*) * ft_wc(s) + 1)))
+	if (!(arr = (char**)malloc(sizeof(char*) * (ft_wc(s) + 1))))
 		return (NULL);
 	while (s[i])
 	{
